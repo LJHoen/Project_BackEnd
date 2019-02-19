@@ -8,22 +8,24 @@ import java.util.List;
 public class KlantAccount extends Account{
 
     @OneToMany
-    private List<Bestelling> geschiedenis = new ArrayList<> ();
+    private List<Bestelling> history = new ArrayList<> ();
+
+    public KlantAccount(){}
 
     public KlantAccount(String firstName, String lastName, String username, String password) {
         super(firstName, lastName, username, password);
     }
 
-    public List<Bestelling> getGeschiedenis() {
-        return geschiedenis;
+    public List<Bestelling> getHistory() {
+        return history;
     }
 
     public void setGeschiedenis(List<Bestelling> geschiedenis) {
-        this.geschiedenis = geschiedenis;
+        this.history = geschiedenis;
     }
 
     public void addBestelling(Bestelling bestelling) {
-        this.geschiedenis.add(bestelling);
+        this.history.add(bestelling);
     }
 
 /**
