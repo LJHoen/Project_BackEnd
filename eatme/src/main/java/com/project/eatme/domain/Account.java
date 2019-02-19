@@ -1,11 +1,8 @@
 package com.project.eatme.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@MappedSuperclass
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,6 +13,8 @@ public class Account {
     private String password;
     private String address;
     private String bankAccount;
+
+    public Account(){}
 
     public Account(String firstName, String lastName, String username, String password) {
         this.firstName = firstName;

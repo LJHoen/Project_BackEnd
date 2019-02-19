@@ -13,6 +13,8 @@ public class ChefAccount extends Account {
     private int rating;
     private int votes;
 
+    public ChefAccount(){}
+
     public ChefAccount(String firstName, String lastName, String username, String password) {
         super(firstName, lastName, username, password);
     }
