@@ -17,6 +17,11 @@ public class Bestelling {
     public Bestelling() {
     }
 
+    public Bestelling(List<Dish> items, double price) {
+        this.items = items;
+        this.price = price;
+    }
+
     public List<Dish> getItems() {
         return items;
     }

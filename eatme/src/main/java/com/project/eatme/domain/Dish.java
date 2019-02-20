@@ -18,6 +18,13 @@ public class Dish {
     public Dish() {
     }
 
+    public Dish(String name, double price, long supply, boolean listed) {
+        this.name = name;
+        this.price = price;
+        this.supply = supply;
+        this.listed = listed;
+    }
+
     public String getName() {
         return name;
     }

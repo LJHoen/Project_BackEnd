@@ -15,8 +15,12 @@ public class ChefAccount extends Account {
 
     public ChefAccount(){}
 
-    public ChefAccount(String firstName, String lastName, String username, String password) {
+    public ChefAccount(String firstName, String lastName, String username, String password){
         super(firstName, lastName, username, password);
+    }
+
+    public ChefAccount(String firstName, String lastName, String username, String password, String address, String bankAccount) {
+        super(firstName, lastName, username, password, address, bankAccount);
     }
 
     public List<Dish> getMenu() {
