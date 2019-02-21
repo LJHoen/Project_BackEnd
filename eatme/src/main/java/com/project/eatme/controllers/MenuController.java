@@ -1,3 +1,4 @@
+/*
 package com.project.eatme.controllers;
 
 import com.project.eatme.domain.*;
@@ -36,3 +37,4 @@ public class MenuController {
         menuService.deleteById(id);
     }
 }
+*/

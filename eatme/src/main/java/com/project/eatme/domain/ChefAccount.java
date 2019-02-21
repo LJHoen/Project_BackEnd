@@ -1,6 +1,7 @@
 package com.project.eatme.domain;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
@@ -8,8 +9,8 @@ import java.util.List;
 
 @Entity
 public class ChefAccount extends Account {
-    @OneToMany
-    private List<Dish> menu = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Dish> dishes;
     private int rating;
     private int votes;
 
@@ -17,22 +18,34 @@ public class ChefAccount extends Account {
 
     public ChefAccount(String firstName, String lastName, String username, String password){
         super(firstName, lastName, username, password);
+        this.dishes = new ArrayList<>();
     }
 
-    public ChefAccount(String firstName, String lastName, String username, String password, String address, String bankAccount) {
+
+    public ChefAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Dish> dishes) {
         super(firstName, lastName, username, password, address, bankAccount);
+        this.dishes = dishes;
     }
 
-    public List<Dish> getMenu() {
-        return menu;
+    public ChefAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Dish> dishes, int rating) {
+        super(firstName, lastName, username, password, address, bankAccount);
+        this.dishes = dishes;
+        this.rating = rating;
     }
 
-    public void setMenu(List<Dish> menu) {
-        this.menu = menu;
+    public ChefAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Dish> dishes, int rating, int votes) {
+        super(firstName, lastName, username, password, address, bankAccount);
+        this.dishes = dishes;
+        this.rating = rating;
+        this.votes = votes;
     }
 
-    public void addDish(Dish dish) {
-        this.menu.add(dish);
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     public int getRating() {
