@@ -1,6 +1,7 @@
 package com.project.eatme.domain;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -11,41 +12,38 @@ import java.util.List;
 @Entity
 public class KlantAccount extends Account{
 
-    @OneToMany
-    private List<Bestelling> history = new ArrayList<> ();
-    @OneToOne
-    private Bestelling currentOrder = new Bestelling();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Dish> history = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Dish> currentOrder = new ArrayList<>();
 
     public KlantAccount(){}
 
     public KlantAccount(String firstName, String lastName, String username, String password) {
         super(firstName, lastName, username, password);
+        this.history = new ArrayList<> ();
     }
 
-    public KlantAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Bestelling> history, Bestelling currentOrder) {
+    public KlantAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Dish> history, List<Dish> currentOrder) {
         super(firstName, lastName, username, password, address, bankAccount);
         this.currentOrder = currentOrder;
         this.history = history;
     }
 
-    public Bestelling getCurrentOrder() {
-        return currentOrder;
-    }
-
-    public void setCurrentOrder(Bestelling currentOrder) {
-        this.currentOrder = currentOrder;
-    }
-
-    public List<Bestelling> getHistory() {
+    public List<Dish> getHistory() {
         return history;
     }
 
-    public void setGeschiedenis(List<Bestelling> geschiedenis) {
-        this.history = geschiedenis;
+    public void setHistory(List<Dish> history) {
+        this.history = history;
     }
 
-    public void addBestelling(Bestelling bestelling) {
-        this.history.add(bestelling);
+    public List<Dish> getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(List<Dish> currentOrder) {
+        this.currentOrder = currentOrder;
     }
 
 /*

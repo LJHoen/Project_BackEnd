@@ -10,24 +10,26 @@ public class Bestelling {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany
-    private List<Dish> items = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Dish> dishes = new ArrayList<>();
+
     private double price;
 
     public Bestelling() {
     }
 
-    public Bestelling(List<Dish> items, double price) {
-        this.items = items;
+    public Bestelling(List<Dish> dishes, double price) {
+        this.dishes = dishes;
         this.price = price;
+
     }
 
     public List<Dish> getItems() {
-        return items;
+        return dishes;
     }
 
     public void setItems(List<Dish> items) {
-        this.items = items;
+        this.dishes = items;
     }
 
     public double getPrice() {
@@ -39,7 +41,7 @@ public class Bestelling {
     }
 
     public void addDish(Dish dish) {
-        this.items.add(dish);
+        this.dishes.add(dish);
         this.price += dish.getPrice();
     }
 
