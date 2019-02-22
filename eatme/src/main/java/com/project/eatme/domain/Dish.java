@@ -20,11 +20,13 @@ public class Dish {
     public Dish() {
     }
 
-    public Dish(String name, double price, String description, String serveTime, boolean listed) {
+    public Dish(long id, String name, double price, String description, String serveTime, boolean listed) {
         this.name = name;
         this.price = price;
+        this.description = description;
         //this.supply = supply;
         this.listed = listed;
+        this.id = id;
     }
 
     public String getName() {

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 public class ChefAccount extends Account {
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     List<Dish> dishes;
     private int rating;
     private int votes;

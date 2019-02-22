@@ -12,9 +12,9 @@ import java.util.List;
 @Entity
 public class KlantAccount extends Account{
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Dish> history = new ArrayList<>();
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Dish> currentOrder = new ArrayList<>();
 
     public KlantAccount(){}
@@ -24,7 +24,7 @@ public class KlantAccount extends Account{
         this.history = new ArrayList<> ();
     }
 
-    public KlantAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Dish> history, List<Dish> currentOrder) {
+    public KlantAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, ArrayList<Dish> history, ArrayList<Dish> currentOrder) {
         super(firstName, lastName, username, password, address, bankAccount);
         this.currentOrder = currentOrder;
         this.history = history;

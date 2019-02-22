@@ -44,13 +44,9 @@ public class KlantAccountController {
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/klanten/{id}", method = RequestMethod.DELETE)
-    public void updateAccount(@PathVariable  long id) {
+    public void deleteAccount(@PathVariable  long id) {
         klantAccountService.deleteById(id);
     }
-
-    @ResponseStatus(value = HttpStatus.OK)
-    @RequestMapping(value = "/klanten.{id}", method = RequestMethod.DELETE)
-    public void  updateAccount(@PathVariable KlantAccount account) { klantAccountService.delete(account); }
 
     @ResponseBody
     @RequestMapping(value = "/klanten", method = RequestMethod.GET)
