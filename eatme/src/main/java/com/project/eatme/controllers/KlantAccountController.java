@@ -37,8 +37,9 @@ public class KlantAccountController {
 
     @ResponseBody
     @RequestMapping(value = "/klanten/{id}", method = RequestMethod.PUT)
-    public long updateAccount(@PathVariable  long id, @RequestBody KlantAccount account) {
-        return klantAccountService.save(account).getId();
+    public KlantAccount updateAccount(@PathVariable  long id, @RequestBody KlantAccount account) {
+        klantAccountService.save(account).getId();
+        return account;
     }
 
     @ResponseStatus(value = HttpStatus.OK)

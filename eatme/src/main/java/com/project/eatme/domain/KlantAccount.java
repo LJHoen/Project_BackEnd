@@ -23,6 +23,7 @@ public class KlantAccount extends Account{
     public KlantAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, Bestelling currentBestelling, List<Bestelling> history) {
         super(firstName, lastName, username, password, address, bankAccount);
         this.history = history;
+        this.currentBestelling = currentBestelling;
     }
 
     public List<Bestelling> getHistory() {
