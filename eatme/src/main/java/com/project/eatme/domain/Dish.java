@@ -16,17 +16,19 @@ public class Dish {
     private String description;
     private String serveTime;
     private boolean listed;
+    private int creator;
 
     public Dish() {
     }
 
-    public Dish(long id, String name, double price, String description, String serveTime, boolean listed) {
+    public Dish(long id, String name, double price, String description, String serveTime, boolean listed, int creator) {
         this.name = name;
         this.price = price;
         this.description = description;
         //this.supply = supply;
         this.listed = listed;
         this.id = id;
+        this.creator = creator;
     }
 
     public String getName() {
@@ -65,6 +67,10 @@ public class Dish {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -79,6 +85,14 @@ public class Dish {
 
     public void setServeTime(String serveTime) {
         this.serveTime = serveTime;
+    }
+
+    public int getCreator() {
+        return creator;
+    }
+
+    public void setCreator(int creator) {
+        this.creator = creator;
     }
 
     public String toString() {
