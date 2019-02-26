@@ -23,6 +23,15 @@ public class Account {
         this.password = password;
     }
 
+    public Account(String firstName, String lastName, String username, String password, String address, String bankAccount) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.address = address;
+        this.bankAccount = bankAccount;
+    }
+
     public long getId() {
         return id;
     }

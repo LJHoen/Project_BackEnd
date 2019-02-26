@@ -12,10 +12,23 @@ public class Dish {
     private long id;
     private String name;
     private double price;
-    private long supply;
+   // private long supply;
+    private String description;
+    private String serveTime;
     private boolean listed;
+    private int creator;
 
     public Dish() {
+    }
+
+    public Dish(long id, String name, double price, String description, String serveTime, boolean listed, int creator) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        //this.supply = supply;
+        this.listed = listed;
+        this.id = id;
+        this.creator = creator;
     }
 
     public String getName() {
@@ -34,13 +47,13 @@ public class Dish {
         this.price = price;
     }
 
-    public long getSupply() {
+/*    public long getSupply() {
         return supply;
     }
 
     public void setSupply(long supply) {
         this.supply = supply;
-    }
+    }*/
 
     public boolean isListed() {
         return listed;
@@ -48,6 +61,38 @@ public class Dish {
 
     public void setListed(boolean listed) {
         this.listed = listed;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getServeTime() {
+        return serveTime;
+    }
+
+    public void setServeTime(String serveTime) {
+        this.serveTime = serveTime;
+    }
+
+    public int getCreator() {
+        return creator;
+    }
+
+    public void setCreator(int creator) {
+        this.creator = creator;
     }
 
     public String toString() {

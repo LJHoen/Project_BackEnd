@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.project.eatme.services.*;
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,19 +37,16 @@ public class KlantAccountController {
 
     @ResponseBody
     @RequestMapping(value = "/klanten/{id}", method = RequestMethod.PUT)
-    public long updateAccount(@PathVariable  long id, @RequestBody KlantAccount account) {
-        return klantAccountService.save(account).getId();
+    public KlantAccount updateAccount(@PathVariable  long id, @RequestBody KlantAccount account) {
+        klantAccountService.save(account).getId();
+        return account;
     }
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/klanten/{id}", method = RequestMethod.DELETE)
-    public void updateAccount(@PathVariable  long id) {
+    public void deleteAccount(@PathVariable  long id) {
         klantAccountService.deleteById(id);
     }
-
-    @ResponseStatus(value = HttpStatus.OK)
-    @RequestMapping(value = "/klanten.{id}", method = RequestMethod.DELETE)
-    public void  updateAccount(@PathVariable KlantAccount account) { klantAccountService.delete(account); }
 
     @ResponseBody
     @RequestMapping(value = "/klanten", method = RequestMethod.GET)
