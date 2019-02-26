@@ -1,5 +1,4 @@
 package com.project.eatme.domain;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,36 +8,52 @@ public class Bestelling {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE} )
+    private List<Dish> dishes;
 
-    @OneToMany
-    private List<Dish> items = new ArrayList<>();
-    private double price;
+    @ElementCollection
+    private List<Integer> dishCount = new ArrayList<>();
+    private int price = 0;
 
     public Bestelling() {
+        this.dishes = new ArrayList<>();
     }
 
-    public List<Dish> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Dish> items) {
-        this.items = items;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
+    public Bestelling(long id, List<Dish> dishes, List<Integer> dishCount, int price) {
+        this.dishes = dishes;
+        this.dishCount = dishCount;
         this.price = price;
     }
 
-    public void addDish(Dish dish) {
-        this.items.add(dish);
-        this.price += dish.getPrice();
+    public long getId() {
+        return id;
     }
 
-    public String toString() {
-        return "Bestelling: [" + "id: " + id + "]";
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
+
+    public List<Integer> getDishCount() {
+        return dishCount;
+    }
+
+    public void setDishCount(List<Integer> dishCount) {
+        this.dishCount = dishCount;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

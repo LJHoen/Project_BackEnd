@@ -42,13 +42,13 @@ public class ChefAccountController {
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/chefs/{id}", method = RequestMethod.DELETE)
-    public void updateAccount(@PathVariable  long id) {
+    public void deleteAccount(@PathVariable  long id) {
         chefAccountService.deleteById(id);
     }
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/chefs.{id}", method = RequestMethod.DELETE)
-    public void  updateAccount(@PathVariable ChefAccount account) { chefAccountService.delete(account); }
+    public void  deleteAccount(@PathVariable ChefAccount account) { chefAccountService.delete(account); }
 
     @ResponseBody
     @RequestMapping(value = "/chefs", method = RequestMethod.GET)
