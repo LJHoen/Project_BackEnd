@@ -11,6 +11,8 @@ import java.util.List;
 public class ChefAccount extends Account {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Dish> dishes;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Bestelling> bestellingen;
     private int rating;
     private int votes;
 
@@ -34,9 +36,10 @@ public class ChefAccount extends Account {
         this.rating = rating;
     }
 
-    public ChefAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Dish> dishes, int rating, int votes) {
+    public ChefAccount(String firstName, String lastName, String username, String password, String address, String bankAccount, List<Dish> dishes, List<Bestelling> bestellingen, int rating, int votes) {
         super(firstName, lastName, username, password, address, bankAccount);
         this.dishes = dishes;
+        this.bestellingen = bestellingen;
         this.rating = rating;
         this.votes = votes;
     }
@@ -47,6 +50,14 @@ public class ChefAccount extends Account {
 
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
+    }
+
+    public List<Bestelling> getBestellingen() {
+        return bestellingen;
+    }
+
+    public void setBestellingen(List<Bestelling> bestellingen) {
+        this.bestellingen = bestellingen;
     }
 
     public int getRating() {
