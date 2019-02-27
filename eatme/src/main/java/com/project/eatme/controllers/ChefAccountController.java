@@ -58,7 +58,8 @@ public class ChefAccountController {
 
     @ResponseBody
     @RequestMapping(value = "/chefs/{id}", method = RequestMethod.GET)
-    public Optional<ChefAccount> accountById(@PathVariable  long id) {
-        return chefAccountService.findById(id);
+    public ChefAccount accountById(@PathVariable  long id) {
+        // .get() niet rechtstreeks. Eerst checken en evt exception geven
+         return chefAccountService.findById(id).get();
     }
 }
