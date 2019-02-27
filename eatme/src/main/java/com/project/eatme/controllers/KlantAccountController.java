@@ -56,7 +56,7 @@ public class KlantAccountController {
 
     @ResponseBody
     @RequestMapping(value = "/klanten/{id}", method = RequestMethod.GET)
-    public Optional<KlantAccount> accountById(@PathVariable  long id) {
-        return klantAccountService.findById(id);
+    public KlantAccount accountById(@PathVariable  long id) {
+        return klantAccountService.findById(id).get();
     }
 }
